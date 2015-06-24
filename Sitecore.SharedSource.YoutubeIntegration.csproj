@@ -8,9 +8,9 @@
     <ProjectGuid>{193E2745-9826-4BA0-80B7-6352DBA5D094}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.Data.YouTube</RootNamespace>
-    <AssemblyName>YouTubeDataProvider</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>Sitecore.SharedSource.YoutubeIntegration</RootNamespace>
+    <AssemblyName>Sitecore.SharedSource.YoutubeIntegration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,6 +31,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,19 +52,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.GData.Client">
-      <HintPath>bin\Google.GData.Client.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Google.GData.Client, Version=2.2.0.0, Culture=neutral, PublicKeyToken=04a59ca9b0273830, processorArchitecture=MSIL">
+      <HintPath>packages\Google.GData.Client.2.2.0.0\lib\Google.GData.Client.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Google.GData.Extensions">
-      <HintPath>bin\Google.GData.Extensions.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Google.GData.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0b4c5df2ebf20876, processorArchitecture=MSIL">
+      <HintPath>packages\Google.GData.Extensions.2.2.0.0\lib\Google.GData.Extensions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Google.GData.YouTube">
-      <HintPath>bin\Google.GData.YouTube.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Google.GData.YouTube, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af04a32718ae8833, processorArchitecture=MSIL">
+      <HintPath>packages\Google.GData.YouTube.2.2.0.0\lib\Google.GData.YouTube.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.4.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>bin\Sitecore.Kernel.dll</HintPath>
@@ -91,9 +98,9 @@
     <Compile Include="layouts\YouTubePreview.aspx.designer.cs">
       <DependentUpon>YouTubePreview.aspx.cs</DependentUpon>
     </Compile>
-    <Compile Include="YouTubeDataProvider.cs" />
+    <Compile Include="Data\YouTubeDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YTItemInfo.cs" />
+    <Compile Include="Data\YTItemInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="layouts\YouTubePreview.aspx">
@@ -101,7 +108,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Include\YouTubeDataProvider.config" />
+    <None Include="Include\Sitecore.SharedSource.YoutubeIntegration.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -120,6 +129,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -129,6 +139,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetDir)YouTubeDataProvider.*" "$(SolutionDir)bin\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

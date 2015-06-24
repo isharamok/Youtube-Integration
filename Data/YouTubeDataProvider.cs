@@ -4,6 +4,7 @@ using System.Linq;
 using Sitecore.Caching;
 using Sitecore.Collections;
 using Sitecore.Configuration;
+using Sitecore.Data;
 using Sitecore.Data.DataProviders;
 using Sitecore.Data.IDTables;
 using Sitecore.Data.Items;
@@ -14,7 +15,7 @@ using Sitecore.Data.Templates;
 using Sitecore.Diagnostics;
 using Sitecore.Reflection;
 
-namespace Sitecore.Data.YouTube
+namespace Sitecore.SharedSource.YoutubeIntegration.Data
 {
    /// <summary>
    /// YouTube read-only data provider
@@ -199,7 +200,7 @@ namespace Sitecore.Data.YouTube
             VersionUriList versionUriList = new VersionUriList();
             foreach (var language in LanguageManager.GetLanguages(ContentDB))
             {
-               versionUriList.Add(language, Version.First);
+               versionUriList.Add(language, Sitecore.Data.Version.First);
             }
             context.Abort();
             return versionUriList;

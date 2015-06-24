@@ -1,6 +1,7 @@
 ﻿using Google.GData.YouTube;
+using Sitecore.Data;
 
-namespace Sitecore.Data.YouTube
+namespace Sitecore.SharedSource.YoutubeIntegration.Data
 {
    public class YTItemInfo
    {

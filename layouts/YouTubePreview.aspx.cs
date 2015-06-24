@@ -5,7 +5,7 @@ using Sitecore.Sites;
 using Sitecore.Configuration;
 using Sitecore.Globalization;
 
-namespace Dev080701.layouts
+namespace Sitecore.SharedSource.YoutubeIntegration.layouts
 {
    public partial class YouTubePreview : System.Web.UI.Page
    {
