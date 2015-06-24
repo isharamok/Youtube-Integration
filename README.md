@@ -2,6 +2,7 @@
 Youtube integration example for Sitecore CMS.
 
 > **Note:**
+<<<<<<< HEAD
 > This is an example module which means that the code may not be production ready.
 
 ## About the module
@@ -15,3 +16,7 @@ If you have a video channel on YouTube or several and you are looking at an easy
 ## Setting up the module
 
 *Coming soon*
+=======
+> This is an example module which means that code might not be production ready.
+
+>>>>>>> origin/master
